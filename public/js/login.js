@@ -9,7 +9,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const email = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password
     });
@@ -20,5 +20,8 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     }
 
     alert("Login Success");
-    window.location.href = "../index.html"; 
+
+    window.location.href = "/index.html";
 });
+
+
