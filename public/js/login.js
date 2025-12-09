@@ -1,0 +1,24 @@
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+    });
+
+    if (error) {
+        alert(error.message);
+        return;
+    }
+
+    alert("Login Success");
+    window.location.href = "../index.html"; 
+});
