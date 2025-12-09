@@ -1,0 +1,9 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.navigasi {
+    display: flex;
+    align-items: center;
+}
